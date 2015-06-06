@@ -40,7 +40,9 @@ h1 {
 }
 
 #bio {
-	font-size: 150%;
+	font-size: 125%;
+	font-style: italic;
+	font-weight: lighter;
 }
 
 ul{
@@ -49,6 +51,7 @@ ul{
 
 .inst {
 	font-weight: bold;
+
 }
 /* LAYOUT */
 
