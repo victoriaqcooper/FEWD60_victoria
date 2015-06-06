@@ -37,6 +37,7 @@ body {
 
 h1 {
 	font-size: 400%;
+	text-indent: 
 }
 
 #bio {
@@ -60,9 +61,23 @@ img{
 	width: 200px;
 	border-radius: 100%;
 } 
+ 
  h1 {
  	float: right;
+ 	text-align: right;
  }
+ 
+ li{
+ 	text-align: right;
+ }
+
+ h2{
+ 	padding-left: 15px;
+ }
+
+div{
+	padding-right: 15px;
+}
 
 .content, h2 {
 	width: 100%;
