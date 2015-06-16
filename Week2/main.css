@@ -1,0 +1,39 @@
+header {
+  height: 100px;
+  width: 650px;
+  outline: solid 2px black;
+  margin: 10px;
+
+}
+
+section {
+  height: 300px;
+  outline: solid 1px black;
+  margin: 10px;
+}
+
+.one {
+  float: right;
+  width: 200px;
+
+}
+
+.two {
+  float: left;
+  width: 400px;
+}
+ body{
+    width: 650px;
+ }
+.cf {
+  clear: both;
+}
+
+
+footer {
+  height: 100px;
+  width: 650px;
+  outline: solid 2px black;
+  margin: 10px;
+
+}
