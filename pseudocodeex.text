@@ -1,0 +1,10 @@
+set 'TargetTemp' = 65
+
+  get 'CurrentTemp' = CurrentTemp
+  While(thermostat ON)  
+    {
+    if 'CurrentTemp' is < 'TargetTemp'
+      heater on
+    if 'CurrentTemp' is >= 'TargetTemp'
+      heater off
+    }

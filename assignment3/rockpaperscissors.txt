@@ -1,0 +1,25 @@
+set variable playerOne
+set variable playerTwo
+
+set input r
+set input p
+set input s
+
+  
+set Values
+  r > s && r < p && s > p
+
+
+Get input [r, s, p] 
+  assign to playerOne
+
+Get input [r, s, p]
+  assgin to playerTwo
+
+check input against values
+print variable of grater value as 'Winner'
+
+
+  
+  
+
