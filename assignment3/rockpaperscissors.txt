@@ -6,9 +6,12 @@ set input p
 set input s
 
   
-set Values
-  r > s && r < p && s > p
-
+set Values for inputs
+{
+  r > s 
+  r < p
+  s > p
+  }  
 
 Get input [r, s, p] 
   assign to playerOne
@@ -16,8 +19,12 @@ Get input [r, s, p]
 Get input [r, s, p]
   assgin to playerTwo
 
-check input against values
-print variable of grater value as 'Winner'
+if {
+  value of playerOne > value playerTwo
+}
+print 'Player one wins!'
+
+else print 'Player two wins!'
 
 
   
