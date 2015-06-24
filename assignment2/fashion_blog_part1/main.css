@@ -5,6 +5,9 @@ body {
   font-weight: 300;
   width: 1000px;
   padding: ;
+  /*I wouldn't recommend adding a width to the body. This will become more of an issue when we discuss Responsive Design.
+  When you need to contain the content width, it's better to create a div with the class of container, i.e. <div class="container"> 
+  Also, be careful not to leave empty styles in your code. */
 }
 
 a {
@@ -28,6 +31,7 @@ a {
   text-decoration: underline;
   display: inline-block;
   margin: 0 5px 0 5px;
+  /* You can also write "margin: 0 5px;"" */
   padding-bottom: 60px;
   text-decoration: underline;
   color: lightgrey;
@@ -39,8 +43,10 @@ a {
   margin-left: 20px;
 }*/
 
-nav::first-child {
-  padding-left: 40px; /* why doesnt this work? */
+nav a:first-child {
+  padding-left: 100px;
+  background: yellow; /* why doesnt this work? EM: You need to add "a", 
+  I've added the background: yellow so you can see it working. */
 }
 
 /* POST HEADINGS */
@@ -70,20 +76,26 @@ article {
 
 p {
   font-size: 14px;
-  line-height: 1.5;
+/*  line-height: 1.5;*/
   width: 900px;
-  clear: both; /* cant get the text to wrap around the larger first letter */
+  clear: both; /* cant get the text to wrap around the larger first letter (EM: see below)*/
 }
 
-p::first-letter {
-  font-size: 48px;
+p:first-letter {
+  line-height: 45px;
+  font-size: 60px;
   color: lightgrey;
   float: left;
   padding: 0px;
   margin: 0px;
-  display: none;
+  display: none; /*This style isn't doing anything. It's basically meant to hide
+  the element, but it's not working here.  */
 
 }
+
+/* I moved the line height down to the first letter and played around 
+with the font-size and line-height proportions until I got the text to wrap.
+It's not a very scientific response. Just lots of little tweaks.... */
 
 .cont {
   width: 900px;
