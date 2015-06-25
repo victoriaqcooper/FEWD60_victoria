@@ -1,0 +1,63 @@
+
+.backimage {
+    background: transparent
+    url('../images/coworking.jpg')
+    center
+    no-repeat;
+}
+ /* NAV AND HEADDER */
+nav, header {
+  background-color: black;
+  margin: 0px;
+  border: 0;
+}
+nav {
+  border-bottom: 5px solid yellow;
+}
+
+h1 {
+  color: yellow;
+  margin: 0;
+  font-size: 24px; 
+}
+
+.navbold, .navlink {
+  color: white;
+  padding: 10px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: right;
+
+}
+
+nav a:first-child {
+  padding-left: 300px;
+}
+
+/* TAGLINE */
+
+.tagline {
+  color: black;
+  padding: 0;
+  height: 40px;
+  background-color: grey;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* picture and section*/
+.backimage {
+  padding: 15px;
+}
+
+.overlay {
+  height: 350px;
+  width: 200px;
+  border: solid 2px black;
+  background-color: rgba(255, 255, 255, .7);
+  margin-left: 700px;
+  margin-top: 15px;
+}
+
+
