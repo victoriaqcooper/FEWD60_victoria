@@ -6,10 +6,13 @@ $(document).ready(function() {
     event.preventDefault();
 //get value of input from city-type and call it var city
     var city = $('#city-type').val();
-    console.log(city);
+    $('#city-type').val('');
+    // var ctyAdjusted = city.toLowerCase();
+i
+    // console.log(cityAdjuste);
 
 //if value of city matches "New York" or "NYC" or "New York City"
-    if(city == 'New York' || city == 'NYC' || city == 'New York City') {
+    if(city == 'new york' || city == 'nyc' || city == 'new york city') {
 
 //change background image to nyc.jpg     
       $('body').css("background-image", "url(../assignment5/images/nyc.jpg)");    
@@ -47,11 +50,7 @@ $(document).ready(function() {
       $('body').css("background", "green");
     }
 
-
   });
-
-
-
       
   }); 
 
