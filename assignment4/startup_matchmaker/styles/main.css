@@ -1,4 +1,21 @@
 
+/* ASSIGNMENT 4*/
+
+.blue-steel {
+  opacity: 1;
+  /*transition-property: background-color, font-size;
+  transition-duration: 3s;*/
+  background-color: purple;
+  font-size: 25px;
+
+  }
+
+button {
+  opacity: .75;
+}
+
+/* GENERAL */
+
 .backimage {
     background: transparent
     url('../images/coworking.jpg')
@@ -31,12 +48,15 @@ h1 {
 
 }
 
+/*.mouse {
+  color: red;
+}*/
+
 nav a:first-child {
   padding-left: 300px;
 }
 
-/* TAGLINE */
-
+/* TAGLINE*/
 .tagline {
   color: black;
   padding: 0;

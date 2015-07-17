@@ -7,20 +7,20 @@ $(document).ready(function() {
 //get value of input from city-type and call it var city
     var city = $('#city-type').val();
     $('#city-type').val('');
-<<<<<<< Updated upstream
+// Updated upstream
     // var ctyAdjusted = city.toLowerCase();
-i
-    // console.log(cityAdjuste);
+
+    // console.log(cityAdjusted);
 
 //if value of city matches "New York" or "NYC" or "New York City"
-    if(city == 'new york' || city == 'nyc' || city == 'new york city') {
-=======
+   if(city == 'new york' || city == 'nyc' || city == 'new york city') {
+
     var cityAdjust = city.toLowerCase();
-    console.log(city);
+    console.log(cityAdjust);
 
 //if value of city matches "New York" or "NYC" or "New York City"
     if(cityAdjust == 'new york' || cityAdjust == 'nyc' || cityAdjust == 'new york City') {
->>>>>>> Stashed changes
+//Stashed changes
 
 //change background image to nyc.jpg     
       $('body').css("background-image", "url(../assignment5/images/nyc.jpg)");    
@@ -48,7 +48,7 @@ i
     }
 
 //else value of city matches "Sydney" or "SYD"
-    else if(cityAdjust == 'sydney' || city == 'syds') {
+    else if(cityAdjust == 'sydney' || city == 'syd') {
 
 //change the background image to sydney.jpg
       $('body').css("background-image", "url(../assignment5/images/sydney.jpg)");
@@ -58,11 +58,11 @@ i
       $('body').css("background", "green");
     }
 
-<<<<<<< Updated upstream
+/*<<<<<<< Updated upstream
 =======
 
 
->>>>>>> Stashed changes
+>>>>>>> Stashed changes */
   });
       
   }); 
