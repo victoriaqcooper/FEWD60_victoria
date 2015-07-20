@@ -1,3 +1,19 @@
+/*
+EM Feedback
+5 - Effort/completion
+5 - Code cleanliness
+5 - Overall command of material
+5 - Leveraging skills learned (using responsive design, HTML/CSS/JS, plugins, etc..)
+20/20
+
+Hey, so this code looks good, the logic is in place. One advantage of working with the 
+pre-set classes  in your css is that it keeps your styles seperate from your
+javascript. Another way to change the image would be to use
+$('body').attr('class','nyc'); 
+It's just another way to accomplish the same goal, of changing up the image.
+*/
+
+
 $(document).ready(function() {
 
 //when submit button is clicked
@@ -6,9 +22,9 @@ $(document).ready(function() {
     event.preventDefault();
 //get value of input from city-type and call it var city
     var city = $('#city-type').val();
-    $('#city-type').val('');
+    // $('#city-type').val('');
     // var ctyAdjusted = city.toLowerCase();
-i
+
     // console.log(cityAdjuste);
 
 //if value of city matches "New York" or "NYC" or "New York City"
