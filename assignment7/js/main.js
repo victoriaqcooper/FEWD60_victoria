@@ -11,17 +11,18 @@ $(document).ready(function() {
 
     $('#item').val("");
 
-    $('#list').append("<p><input type='checkbox' value='done' class='checkbox'>" + item +"</p>");
+    $('#list').append("<li><input type='checkbox' value='done' class='checkbox'>" + item +"</li>");
 
 
       $('.checkbox').click(function() {
         event.preventDefault();
         if(this.checked) {
-          $('p').toggleClass('checked');
-
+          $('li').addClass('checked');
         }
+
       });
     });
+});
+
 
 //
-});

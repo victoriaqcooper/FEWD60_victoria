@@ -5,11 +5,13 @@
 .checkbox {
   display: inline;
 }
-
-span {
-  display: block;
+ul {
+  list-style-type: none;
 }
 
+li {
+  display: block;
+}
 .checked {
   color: #8b8b8b;
 }
