@@ -1,0 +1,15 @@
+.list {
+  height: 200px;
+  width: 200px;
+}
+.checkbox {
+  display: inline;
+}
+
+span {
+  display: block;
+}
+
+.checked {
+  color: #8b8b8b;
+}
