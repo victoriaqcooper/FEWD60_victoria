@@ -9,14 +9,64 @@ body {
 
 /*LAYOUT*/
 
-.navlink {
-  display: inline-block;
+
+h3 {
+  display: block;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  font-size: 1.5em;
 }
+
+.special {
+  border: none;
+  font-weight: 400;
+  font-size: 1.7em;
+}
+ /*this will be overwritten when links are clicked??*/
+
+header {
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.about {
+  padding: 50px;
+  margin: 0 auto;
+}
+
+.subhead {
+  border-bottom: 1px solid #fff;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin: 10px auto;
+  font-size: 1.5em;
+}
+  .abouttext {
+  margin: 5px auto;
+  font-size: 1.3em;
+  padding: 0 15px;
+ }
+
 
 /*FONT*/
 h1 {
-  font-size: 60px;
+  font-size: 7em;
   font-weight: 700;
-  padding: 0;
+  padding-left: 10px;
 }
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/*JS DEPENDENT*/
+ .data {
+  height:400px;
+  width: 80%;
+  margin: 10px auto;
+  border: 1px solid #fff;
+ }
 

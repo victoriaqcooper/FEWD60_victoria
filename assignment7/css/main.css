@@ -12,6 +12,6 @@ ul {
 li {
   display: block;
 }
-.checked {
+.done {
   color: #8b8b8b;
 }
