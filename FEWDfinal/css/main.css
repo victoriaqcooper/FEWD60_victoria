@@ -26,6 +26,13 @@ h3 {
 }
  /*this will be overwritten when links are clicked??*/
 
+ .postlinks a {
+  border: 1px solid #fff;
+  padding: 10px;
+  margin: 0 auto;
+  display: inline-table;
+ }
+
 header {
   padding: 10px;
   margin: 0 auto;
@@ -63,10 +70,16 @@ a {
 }
 
 /*JS DEPENDENT*/
- .data {
-  height:400px;
+ .data: {
   width: 80%;
   margin: 10px auto;
   border: 1px solid #fff;
+ }
+
+ .month {
+  border-radius: 100%;
+  background-color: #8b8b8b;
+  display: inline-block;
+  width: 10%;
  }
 
