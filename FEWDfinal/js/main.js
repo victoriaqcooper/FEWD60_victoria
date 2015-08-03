@@ -20,12 +20,13 @@ function liveFeed(event) {
 //url variables
 var url = 'http://api.tumblr.com/v2/tagged?tag=sherlock&api_key=';
 var api_key = 'KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J';
-//timestamp = jan 1 2012
+//before timestamp = jan 1 2012
 var before = '&before=1325462400';
 //actual ajax call
 $.ajax ({
   type: 'GET',
-  url: url + api_key + before,
+  url: url + api_key,
+  //limit is not working?
   limit: 10,
   //after: 1326153600,
   dataType: 'jsonp',
