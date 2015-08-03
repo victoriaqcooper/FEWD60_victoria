@@ -13,18 +13,15 @@ $('#list').on('click', '.remove', deleteItem);
 $('#list').on('click', '.item', itemStatus);
 
 //edit item 
-$('#list').on('click', '.edit', itemEdit);
+$('#list').on('click', '.editButton', itemEdit);
+
+//save edit on item
+//$('#list').on('click', '.saveButton', editSave);
 
 //clear list
 $('#clear').on('click', clearList);
 
 //FUCNTIONS
-
-
-//function to save edited item
-
-
-
 
 //function to reset input form
 function inputReset(event) {
@@ -38,7 +35,7 @@ function addNewItem(event) {
   
   var item = $('#item').val();
 
-  $('#list').append("<li><span class='item'>" + item + "</span><button class='edit'>edit</button><button class='remove'>remove</button></li>");
+  $('#list').append("<li><span class='item'>" + item + "</span><button class='editButton'>edit</button><button class='remove'>remove</button></li>");
 }
 
 //function swith item complete/active
@@ -55,9 +52,36 @@ function itemStatus(event) {
 //function to edit item
 function itemEdit(event) {
   event.preventDefault();
-  // Get the text of the to-do item; it's a sibling of the clicked link
+  //check it;s running
   console.log("itemEdit is running");
+  //set a var for text of item
+  var itemText = $(this).siblings('.item').html();
+  //check
+  console.log("itemText is" + itemText);
+  //set a var for the <li> iteself, which is the parent of this
+  var listItem = $(this).parent();
+  //replace listItem with input field with the value of itemText
+  listItem.html("<form class='editor'><input class='edit' id='editItem' type='textbox' value='" + itemText + "'></form>");
+  //focus on input field
+  listItem.find('input').focus();
+
+       itemText = $(this).val();
+       console.log("itemText is now" + itemText);  
+       $(this).append("<li><span class='item'>" + itemText + "</span><button class='edit'>edit</button><button class='remove'>remove</button></li>");
+
 }
+
+//function to save edited item
+// function editSave(event) {
+//   event.preventDefault();
+//   //check it's running
+//   console.log("editSave is running");
+
+//   //
+//   var itemUpdate = $('.edit').val();
+//   console.log(itemUpdate);
+//   $('.save').click([itemUpdate], );
+// }
 
 //function to remove item
 function deleteItem(event) {
