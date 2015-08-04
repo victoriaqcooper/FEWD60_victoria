@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  
+/**********NAVIGATION************/
   $(function () {
     $('#menu').show().accordion({
       active: false,
@@ -10,53 +12,42 @@ $(document).ready(function() {
 
   });
 
-  //on click, run ajax call for live feed
+//on click, run ajax call for live feed
   $('#menu').on('click', '.liveFeed', liveFeed);
 
-function liveFeed(event) {
+/**********TUMBLR API CALLS************/
 
-//LIVE FEED CALL
-
+  function liveFeed(event) {
 //url variables
-var url = 'http://api.tumblr.com/v2/tagged?tag=sherlock&api_key=';
-var api_key = 'KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J';
+    var url = 'http://api.tumblr.com/v2/tagged?tag=sherlock&api_key=';
+    var api_key = 'KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J';
 //before timestamp = jan 1 2012
-var before = '&before=1325462400';
+    var before = '&before=1325462400';
 //actual ajax call
-$.ajax ({
-  type: 'GET',
-  url: url + api_key,
-  //limit is not working?
-  limit: 10,
-  //after: 1326153600,
-  dataType: 'jsonp',
+    $.ajax ({
+      type: 'GET',
+      url: url + api_key,
+//limit is not working?
+      limit: 10,
+//after: 1326153600,
+      dataType: 'jsonp',
 //if successful, display results as <li> links
-  success: function(results){
+      success: function(results){
 
-    var resultResponse = results.response;
+        var resultResponse = results.response;
 
-    for(i=0; i < resultResponse.length; i++) {
-      $('#liveposts').append("<li class='postlinks'><a href='" + resultResponse[i].post_url + "'>" + resultResponse[i].blog_name + "</a></li>");
-      console.log(resultResponse[i].date);
-    }
-     
-    }
-});
-}
+        for(i=0; i < resultResponse.length; i++) {
+          $('#liveposts').append("<li class='postlinks'><a href='" + resultResponse[i].post_url + "'>" + resultResponse[i].blog_name + "</a></li>");
+          console.log(resultResponse[i].date);
 
-//search tumblr for posts tagged sherlock
+//if result type is a photo, display the photo
 
-// ajax in success myCoolFun(json)
-
-// look at $.each
-
-// function myCoolFun(json){
-
-// if( i.date === mydate && i.date ===myOtherDate){
-
-// }
-
-// }
+//else, display title as link
+        }
+         
+        }
+    });
+  }
 
 
 
