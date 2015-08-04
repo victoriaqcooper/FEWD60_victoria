@@ -1,6 +1,7 @@
 $(document).ready(function() {
   
 /**********NAVIGATION************/
+
   $(function () {
     $('#menu').show().accordion({
       active: false,
@@ -15,14 +16,13 @@ $(document).ready(function() {
 //on click, run ajax call for live feed
   $('#menu').on('click', '.liveFeed', liveFeed);
 
-/**********TUMBLR API CALLS************/
+/**********API FUNCTIONS************/
 
   function liveFeed(event) {
 //url variables
-    var url = 'http://api.tumblr.com/v2/tagged?tag=sherlock&api_key=';
-    var api_key = 'KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J';
-//before timestamp = jan 1 2012
-    var before = '&before=1325462400';
+    var url = 'http://api.tumblr.com/v2/tagged?tag=sherlock';
+    var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J';
+
 //actual ajax call
     $.ajax ({
       type: 'GET',
@@ -35,22 +35,33 @@ $(document).ready(function() {
       success: function(results){
 
         var resultResponse = results.response;
+        
 
         for(i=0; i < resultResponse.length; i++) {
-          $('#liveposts').append("<li class='postlinks'><a href='" + resultResponse[i].post_url + "'>" + resultResponse[i].blog_name + "</a></li>");
+//console log sanity check
           console.log(resultResponse[i].date);
 
+//set variable for post urls for links          
+          var postUrl = resultResponse[i].post_url;        
+          
 //if result type is a photo, display the photo
+          if (resultResponse[i].type == "photo"){
+          $('#liveposts').append("<li class='postlinksphoto'><a href='" + postUrl + "'><img src='" + resultResponse[i].photos[0].alt_sizes[2].url + "'></a></li>");
+          }
 
 //else, display title as link
+          else {
+            $('#liveposts').append("<li class='postlinks'><a href='" + postUrl + "'>" + resultResponse[i].blog_name + "</a></li>");
+          }
         }
-         
-        }
+      }
     });
+
   }
 
 
-
+//before timestamp = jan 1 2012
+    // var before = '&before=1325462400';
 
 //switch cases:
 
