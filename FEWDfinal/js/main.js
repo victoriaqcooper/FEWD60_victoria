@@ -28,7 +28,7 @@ $(document).ready(function() {
       type: 'GET',
       url: url + api_key,
 //limit is not working?
-      limit: 10,
+      limit: 30,
 //after: 1326153600,
       dataType: 'jsonp',
 //if successful, display results as <li> links
@@ -50,8 +50,9 @@ $(document).ready(function() {
           $('#liveposts').append("<li class='postlinksphoto item'><a href='" + postUrl + "'><img src='" + resultResponse[i].photos[0].alt_sizes[2].url + "'></a></li>");
           }
 
+//if result type is text, display the body of the post
           else if (resultResponse[i].type == "text"){
-            $('#liveposts').append("<li class= 'postlinkstext item'><a href='" + postUrl + "'><div>" + resultResponse[i].body + "</div>");
+            $('#liveposts').append("<li class= 'postlinkstext item'><a href='" + postUrl + "'><div>" + resultResponse[i].body + "</div></a></li>");
           }
 
 //else, display title as link
