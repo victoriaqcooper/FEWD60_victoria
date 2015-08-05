@@ -15,21 +15,21 @@ $(document).ready(function() {
 
 //on click, run ajax call for live feed
   $('#menu').on('click', '.liveFeed', liveFeed);
+  $('#menu').on('click', '.time', time )
 
 /**********API FUNCTIONS************/
 
+/*LIVE FEED*/  
   function liveFeed(event) {
 //url variables
-    var url = 'http://api.tumblr.com/v2/tagged?tag=sherlock';
+    var url = 'http://api.tumblr.com/v2/tagged?tag=';
+    var tag = 'sherlock'
     var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J';
-
+    var limit = '&limit=20'
 //actual ajax call
     $.ajax ({
       type: 'GET',
-      url: url + api_key,
-//limit is not working?
-      limit: 30,
-//after: 1326153600,
+      url: url + tag + api_key + limit,
       dataType: 'jsonp',
 //if successful, display results as <li> links
       success: function(results){
@@ -64,8 +64,7 @@ $(document).ready(function() {
   $('#livefeed').masonry({
    columnWidth: 250,
    itemSelector: '.item',
-   });     
-
+   });  
 
       }
 
@@ -73,13 +72,45 @@ $(document).ready(function() {
 
 }
 
+/*TIME*/
+ function time(event){
+
+    var url = 'http://api.tumblr.com/v2/tagged?tag=';
+    var tag = 'sherlock';
+    var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J&before=';
+    var before = '1325462400';
+//actual ajax call
+    $.ajax ({
+      type: 'GET',
+      url: url + tag + api_key + before,
+      dataType: 'jsonp',
+      success: function(results){
+
+        var resultResponse = results.response;
+        console.log(resultResponse[0].timestamp);
+        console.log(resultResponse[19].timestamp);
+
+        }
+
+      });
+   
+
+ }
+
+
 /*THIS CLOSES DOCUMENT.READY*/});
 
-  
+//TIME PSUEDO CODE
+  //call sherlock tagged posts before jan 1 2012 (line 110)
+  //change value of before to resultResponse[19].timestamp
+  //repeat lines 105-106 until value of resultResponse[19].timestamp is =< timestamp for august 10 2010 (line 114)  
 
 
 //before timestamp = jan 1 2012
-    // var before = '&before=1325462400';
+    // var before = '1325462400';
+
+//timestamp for aug 10 2010
+  // var after = '1281398400';
 
 //switch cases:
 
