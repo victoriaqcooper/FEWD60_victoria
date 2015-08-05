@@ -40,24 +40,41 @@ $(document).ready(function() {
         for(i=0; i < resultResponse.length; i++) {
 //console log sanity check
           console.log(resultResponse[i].date);
+          console.log(resultResponse[i].type);
 
 //set variable for post urls for links          
           var postUrl = resultResponse[i].post_url;        
           
 //if result type is a photo, display the photo
           if (resultResponse[i].type == "photo"){
-          $('#liveposts').append("<li class='postlinksphoto'><a href='" + postUrl + "'><img src='" + resultResponse[i].photos[0].alt_sizes[2].url + "'></a></li>");
+          $('#liveposts').append("<li class='postlinksphoto item'><a href='" + postUrl + "'><img src='" + resultResponse[i].photos[0].alt_sizes[2].url + "'></a></li>");
+          }
+
+          else if (resultResponse[i].type == "text"){
+            $('#liveposts').append("<li class= 'postlinkstext item'><a href='" + postUrl + "'><div>" + resultResponse[i].body + "</div>");
           }
 
 //else, display title as link
           else {
-            $('#liveposts').append("<li class='postlinks'><a href='" + postUrl + "'>" + resultResponse[i].blog_name + "</a></li>");
+            $('#liveposts').append("<li class='postlinks item'><a href='" + postUrl + "'><div>" + resultResponse[i].blog_name + "</div></a></li>");
           }
         }
-      }
-    });
+//masonry call
+  $('#livefeed').masonry({
+   columnWidth: 250,
+   itemSelector: '.item',
+   });     
 
-  }
+
+      }
+
+  });
+
+}
+
+/*THIS CLOSES DOCUMENT.READY*/});
+
+  
 
 
 //before timestamp = jan 1 2012
@@ -88,4 +105,4 @@ $(document).ready(function() {
       //for every post past 1 post, add 5px to size of added div
 
 
-      });
+    

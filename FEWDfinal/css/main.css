@@ -32,8 +32,16 @@ h3 {
   display: inline-block;
  }
 
+ .postlinkstext div {
+  border: 1px solid #fff;
+  width: 230px;
+  font-size: 1.2em;
+  padding: 5px;
+  margin: 10 auto;
+ }
+
  .postlinksphoto a {
-  border: 1px solid #000;
+  border: 1px solid #fff;
   padding: 10px;
   margin: 10px auto;
   display: inline-block;
