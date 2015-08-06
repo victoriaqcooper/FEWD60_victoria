@@ -12,10 +12,14 @@ $(document).ready(function() {
     });
 
   });
-
-//on click, run ajax call for live feed
+var timeArray = [];
+//on live feed click, run ajax call for live feed
   $('#menu').on('click', '.liveFeed', liveFeed);
-  $('#menu').on('click', '.time', time )
+//on time click bring up menu inside #time
+  $('#menu').one('click', '.time', time );
+  
+  
+
 
 /**********API FUNCTIONS************/
 
@@ -78,33 +82,45 @@ $(document).ready(function() {
 //label for dropdown
   $('#time').append("<div class='selectLabel'>Time Periods</div>")
 // create a dropdown menu for times
-    $('#time').append("<select id='timeSelect'>Choose a Time Period</select>");
-//values for dropdown menu      
-      var timeArray = ["First Series", "The Space Between Part 1", "The Space Between Part 2", "Second Series"];
+  $('#time').append("<select id='timeSelect'>Choose a Time Period</select>"); 
+//on click
+  $('#timeSelect').one('click', function (){
+//values for dropdown menu              
+        var timeArray = ["First Series", "The Space Between Part 1", "The Space Between Part 2", "Second Series"];
 //populate <select> with array values
-    for(var i = 0; i < timeArray.length; i++){
-      $('#timeSelect').append("<option class='timeOption'>" + timeArray[i] + "</option>");
+      for(var i = 0; i < timeArray.length; i++){
+       $('#timeSelect').append("<option class='selectLabel'>" + timeArray[i] + "</option>");
     }
+   });
+//click on option?
+    $('#timeSelect').on('click', timeArray[0], firstSeries);
+
   }
-//     var url = 'http://api.tumblr.com/v2/tagged?tag=';
-//     var tag = 'sherlock';
-//     var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J&before=';
-//     var before = '1325462400';
-// //actual ajax call
-//     $.ajax ({
-//       type: 'GET',
-//       url: url + tag + api_key + before,
-//       dataType: 'jsonp',
-//       success: function(results){
 
-//         var resultResponse = results.response;
-//         console.log(resultResponse[0].timestamp);
-//         console.log(resultResponse[19].timestamp);
+function firstSeries(event) {
+  event.preventDefault();
+  console.log("firstSeries working");
 
-//         }
 
-//       });
-   
+    var url = 'http://api.tumblr.com/v2/tagged?tag=';
+    var tag = 'sherlock';
+    var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J&before=';
+    var before = '1325462400';
+//actual ajax call
+    $.ajax ({
+      type: 'GET',
+      url: url + tag + api_key + before,
+      dataType: 'jsonp',
+      success: function(results){
+
+        var resultResponse = results.response;
+        console.log(resultResponse[0].timestamp);
+        console.log(resultResponse[19].timestamp);
+
+        }
+
+      });
+   }
 
 
 
