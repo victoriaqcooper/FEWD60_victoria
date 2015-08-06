@@ -16,7 +16,7 @@ $('#list').on('click', '.item', itemStatus);
 $('#list').on('click', '.editButton', itemEdit);
 
 //save edit on item
-//$('#list').on('click', '.saveButton', editSave);
+$('#list').on('submit', '.edit', editSave);
 
 //clear list
 $('#clear').on('click', clearList);
@@ -61,13 +61,9 @@ function itemEdit(event) {
   //set a var for the <li> iteself, which is the parent of this
   var listItem = $(this).parent();
   //replace listItem with input field with the value of itemText
-  listItem.html("<form class='editor'><input class='edit' id='editItem' type='textbox' value='" + itemText + "'></form>");
+  listItem.html("<form class='editor'><input class='edit' id='editItem' type='textbox' value='" + itemText + "'><button class='saveedit'>save edit</button></form>");
   //focus on input field
   listItem.find('input').focus();
-
-       itemText = $(this).val();
-       console.log("itemText is now" + itemText);  
-       $(this).append("<li><span class='item'>" + itemText + "</span><button class='edit'>edit</button><button class='remove'>remove</button></li>");
 
 }
 
