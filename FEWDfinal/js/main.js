@@ -74,28 +74,39 @@ $(document).ready(function() {
 
 /*TIME*/
  function time(event){
+    event.preventDefault();
+//label for dropdown
+  $('#time').append("<div class='selectLabel'>Time Periods</div>")
+// create a dropdown menu for times
+    $('#time').append("<select id='timeSelect'>Choose a Time Period</select>");
+//values for dropdown menu      
+      var timeArray = ["First Series", "The Space Between Part 1", "The Space Between Part 2", "Second Series"];
+//populate <select> with array values
+    for(var i = 0; i < timeArray.length; i++){
+      $('#timeSelect').append("<option class='timeOption'>" + timeArray[i] + "</option>");
+    }
+  }
+//     var url = 'http://api.tumblr.com/v2/tagged?tag=';
+//     var tag = 'sherlock';
+//     var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J&before=';
+//     var before = '1325462400';
+// //actual ajax call
+//     $.ajax ({
+//       type: 'GET',
+//       url: url + tag + api_key + before,
+//       dataType: 'jsonp',
+//       success: function(results){
 
-    var url = 'http://api.tumblr.com/v2/tagged?tag=';
-    var tag = 'sherlock';
-    var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J&before=';
-    var before = '1325462400';
-//actual ajax call
-    $.ajax ({
-      type: 'GET',
-      url: url + tag + api_key + before,
-      dataType: 'jsonp',
-      success: function(results){
+//         var resultResponse = results.response;
+//         console.log(resultResponse[0].timestamp);
+//         console.log(resultResponse[19].timestamp);
 
-        var resultResponse = results.response;
-        console.log(resultResponse[0].timestamp);
-        console.log(resultResponse[19].timestamp);
+//         }
 
-        }
-
-      });
+//       });
    
 
- }
+
 
 
 /*THIS CLOSES DOCUMENT.READY*/});
