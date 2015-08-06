@@ -22,12 +22,10 @@ $(document).ready(function() {
     event.preventDefault();
 //get value of input from city-type and call it var city
     var city = $('#city-type').val();
-<<<<<<< HEAD
     // $('#city-type').val('');
     // var ctyAdjusted = city.toLowerCase();
 
     // console.log(cityAdjuste);
-=======
     $('#city-type').val('');
 // Updated upstream
     // var ctyAdjusted = city.toLowerCase();
@@ -39,7 +37,6 @@ $(document).ready(function() {
 
     var cityAdjust = city.toLowerCase();
     console.log(cityAdjust);
->>>>>>> origin/master
 
 //if value of city matches "New York" or "NYC" or "New York City"
     if(cityAdjust == 'new york' || cityAdjust == 'nyc' || cityAdjust == 'new york City') {
@@ -81,11 +78,6 @@ $(document).ready(function() {
       $('body').css("background", "green");
     }
 
-/*<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes */
   });
       
   }); 
