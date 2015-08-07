@@ -33,6 +33,7 @@ $(document).ready(function() {
 
 /*LIVE FEED*/  
   function liveFeed(event) {
+    console.log("liveFeed is running");
 //url variables
     var url = 'http://api.tumblr.com/v2/tagged?tag=';
     var tag = 'sherlock'
@@ -132,7 +133,7 @@ $(document).ready(function() {
 //and increment counter for each one          
   //counter ++;
    //console.log(counter);
-    }while(resultResponse[resultResponse.length-1].timestamp >= 1280016000 ) 
+    } while(resultResponse[resultResponse.length-1].timestamp  > 1280016000); 
 
 
   }
@@ -145,7 +146,7 @@ $(document).ready(function() {
 
 
 
-
+//resultResponse[resultResponse.length-1].timestamp 
 
 
 /*THIS CLOSES DOCUMENT.READY*/});

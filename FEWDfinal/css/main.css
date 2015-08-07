@@ -87,6 +87,16 @@ header {
   display: block;
 }
 
+#liveReload{
+  margin: 25px auto;
+  width: 80%;
+  font-family: 'Josefin Slab', serif; 
+  font-weight: 300;
+  font-size: 1.1em;
+  background-color: #132d40;
+  color: #fff;
+  display: block;
+}
 .selectLabel {
   font-size: 1.2em;
   font-weight: 400;
