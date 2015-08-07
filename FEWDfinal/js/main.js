@@ -1,3 +1,9 @@
+/*QUESTIONS FOR ARTHUR
+  --dropdown selector? line 100
+  --how to set up loop to get all the results, not just 20
+  --masonry for live feed
+*/
+
 $(document).ready(function() {
   
 /**********NAVIGATION************/
@@ -12,12 +18,14 @@ $(document).ready(function() {
     });
 
   });
-var timeArray = [];
 //on live feed click, run ajax call for live feed
   $('#menu').on('click', '.liveFeed', liveFeed);
 //on time click bring up menu inside #time
-  $('#menu').one('click', '.time', time );
-  
+   $('#timeSelect').on('change', function() {
+    // console.log($('#timeSelect').val());
+    if ($('#timeSelect').val() === 'First Series') {firstSeries()}; 
+   });
+
   
 
 
@@ -51,12 +59,20 @@ var timeArray = [];
           
 //if result type is a photo, display the photo
           if (resultResponse[i].type == "photo"){
-          $('#liveposts').append("<li class='postlinksphoto item'><a href='" + postUrl + "'><img src='" + resultResponse[i].photos[0].alt_sizes[2].url + "'></a></li>");
+          $('#liveposts').append("<li class='postlinksphoto item'><a href='" + postUrl + "'><img src='" + resultResponse[i].photos[0].alt_sizes[1].url + "'></a></li>");
           }
 
 //if result type is text, display the body of the post
           else if (resultResponse[i].type == "text"){
             $('#liveposts').append("<li class= 'postlinkstext item'><a href='" + postUrl + "'><div>" + resultResponse[i].body + "</div></a></li>");
+          }
+//if result type is quote, display the quote
+          else if (resultResponse[i].type == "quote") {
+            $('#liveposts').append("<li class= 'postlinksquote item'><a href='" + postUrl + "'><div>" + resultResponse[i].text + "</div></a></li>");
+          }
+
+           else if (resultResponse[i].type == "answer") {
+            $('#liveposts').append("<li class= 'postlinksanswer item'><a href='" + postUrl + "'><div>" + resultResponse[i].answer + "</div></a></li>");
           }
 
 //else, display title as link
@@ -77,36 +93,20 @@ var timeArray = [];
 }
 
 /*TIME*/
- function time(event){
-    event.preventDefault();
-//label for dropdown
-  $('#time').append("<div class='selectLabel'>Time Periods</div>")
-// create a dropdown menu for times
-  $('#time').append("<select id='timeSelect'>Choose a Time Period</select>"); 
-//on click
-  $('#timeSelect').one('click', function (){
-//values for dropdown menu              
-        var timeArray = ["First Series", "The Space Between Part 1", "The Space Between Part 2", "Second Series"];
-//populate <select> with array values
-      for(var i = 0; i < timeArray.length; i++){
-       $('#timeSelect').append("<option class='selectLabel'>" + timeArray[i] + "</option>");
-    }
-   });
-//click on option?
-    $('#timeSelect').on('click', timeArray[0], firstSeries);
+ function firstSeries(event){
+    // event.preventDefault();
+  //   var selectVal = $('#timeSelect').val();
+  //   if ( selectVal == "First Series") {
+   console.log("firstSeries is running");
 
-  }
-
-function firstSeries(event) {
-  event.preventDefault();
-  console.log("firstSeries working");
-
-
+    //var resultResponse = results.response;
     var url = 'http://api.tumblr.com/v2/tagged?tag=';
     var tag = 'sherlock';
     var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J&before=';
-    var before = '1325462400';
+    var before = 1281398400; //this is the timecode for the airdate of s1 e3
 //actual ajax call
+//make ajax call while the timestamp is greater than or equal to the airdate of the first episode    
+     do {
     $.ajax ({
       type: 'GET',
       url: url + tag + api_key + before,
@@ -114,13 +114,36 @@ function firstSeries(event) {
       success: function(results){
 
         var resultResponse = results.response;
-        console.log(resultResponse[0].timestamp);
-        console.log(resultResponse[19].timestamp);
-
+        console.log(resultResponse);
+        // var counter = 0;
+//iterate through array of responses 
+        for(i = 0; i < resultResponse.length; i++) {
+          $('#timeData').append("<a href='" + resultResponse[i].post_url +"'><div class='datapoint'></div></a>");
+        
+//console log the date of the last one
+          console.log(resultResponse[19].date);
         }
+       
+//reassign var before with timestamp of resultResponse[19]
+        before = resultResponse[19].timestamp;
 
+      }
       });
-   }
+//and increment counter for each one          
+  //counter ++;
+   //console.log(counter);
+    }while(resultResponse[resultResponse.length-1].timestamp >= 1280016000 ) 
+
+
+  }
+  
+   //  else {
+   //    console.log("nothing");
+   //  }
+
+  //}
+
+
 
 
 
@@ -136,9 +159,9 @@ function firstSeries(event) {
 //before timestamp = jan 1 2012
     // var before = '1325462400';
 
-//timestamp for aug 10 2010
+//timestamp for aug 10 2010 (airing of s1e3)
   // var after = '1281398400';
-
+// timestamp for july 25 2010 (airdate of s1e1) 1280016000
 //switch cases:
 
   //for time: 
