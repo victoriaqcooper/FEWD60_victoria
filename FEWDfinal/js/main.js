@@ -19,14 +19,78 @@ $(document).ready(function() {
 
   });
 //on sherlock click, run ajax call for live feed
-  $('#menu').on('click', '.sherlock', sherlock);
+  $('#menu').on('click', '.fandom', fandom);
   $('#menu').on('click', '.fanArt', fanArt);
   $('#menu').on('click', '.otp', oneTruePairing);
+  $('#menu').on('click', '.sherlock', sherlock);
+  $('#menu').on('click', '.supernatural', supernatural);
+
 //
   
 
 
 /**********API FUNCTIONS************/
+
+  function fandom(event) {
+    console.log("fandom is running");
+//url variables
+    var url = 'http://api.tumblr.com/v2/tagged?tag=';
+    var tag = 'fandom'
+    var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J';
+    var limit = '&limit=20'
+//actual ajax call
+    $.ajax ({
+      type: 'GET',
+      url: url + tag + api_key + limit,
+      dataType: 'jsonp',
+//if successful, display results as <li> links
+      success: function(results){
+
+        var resultResponse = results.response;
+        
+
+        for(i=0; i < resultResponse.length; i++) {
+//console log sanity check
+          console.log(resultResponse[i].date);
+          console.log(resultResponse[i].type);
+
+//set variable for post urls for links          
+          var postUrl = resultResponse[i].post_url;        
+          
+//if result type is a photo, display the photo
+          if (resultResponse[i].type == "photo"){
+          $('#fandomPosts').append("<li class='postlinksphoto item'><a href='" + postUrl + "'><img src='" + resultResponse[i].photos[0].alt_sizes[1].url + "'></a></li>");
+          }
+
+//if result type is text, display the body of the post
+          else if (resultResponse[i].type == "text"){
+            $('#fandomPosts').append("<li class= 'postlinkstext item'><a href='" + postUrl + "'><div>" + resultResponse[i].body + "</div></a></li>");
+          }
+//if result type is quote, display the quote
+          else if (resultResponse[i].type == "quote") {
+            $('#ofandomPosts').append("<li class= 'postlinksquote item'><a href='" + postUrl + "'><div>" + resultResponse[i].text + "</div></a></li>");
+          }
+
+           else if (resultResponse[i].type == "answer") {
+            $('#fandomPosts').append("<li class= 'postlinksanswer item'><a href='" + postUrl + "'><div>" + resultResponse[i].answer + "</div></a></li>");
+          }
+
+//else, display title as link
+          else {
+            $('#fandomPosts').append("<li class='postlinks item'><a href='" + postUrl + "'><div>" + resultResponse[i].blog_name + "</div></a></li>");
+          }
+        }
+//masonry call
+  $('#fandom').masonry({
+   columnWidth: 250,
+   itemSelector: '.item',
+   });  
+
+      }
+
+  });
+
+}
 
 /*FAN ART*/  
   function fanArt(event) {
@@ -211,6 +275,69 @@ $(document).ready(function() {
   });
 
 }
+
+
+  function supernatural(event) {
+    console.log("supernatural is running");
+//url variables
+    var url = 'http://api.tumblr.com/v2/tagged?tag=';
+    var tag = 'supernatural'
+    var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J';
+    var limit = '&limit=20'
+//actual ajax call
+    $.ajax ({
+      type: 'GET',
+      url: url + tag + api_key + limit,
+      dataType: 'jsonp',
+//if successful, display results as <li> links
+      success: function(results){
+
+        var resultResponse = results.response;
+        
+
+        for(i=0; i < resultResponse.length; i++) {
+//console log sanity check
+          console.log(resultResponse[i].date);
+          console.log(resultResponse[i].type);
+
+//set variable for post urls for links          
+          var postUrl = resultResponse[i].post_url;        
+          
+//if result type is a photo, display the photo
+          if (resultResponse[i].type == "photo"){
+          $('#supernaturalPosts').append("<li class='postlinksphoto item'><a href='" + postUrl + "'><img src='" + resultResponse[i].photos[0].alt_sizes[1].url + "'></a></li>");
+          }
+
+//if result type is text, display the body of the post
+          else if (resultResponse[i].type == "text"){
+            $('#supernaturalPosts').append("<li class= 'postlinkstext item'><a href='" + postUrl + "'><div>" + resultResponse[i].body + "</div></a></li>");
+          }
+//if result type is quote, display the quote
+          else if (resultResponse[i].type == "quote") {
+            $('#supernaturalPosts').append("<li class= 'postlinksquote item'><a href='" + postUrl + "'><div>" + resultResponse[i].text + "</div></a></li>");
+          }
+
+           else if (resultResponse[i].type == "answer") {
+            $('#supernaturalPosts').append("<li class= 'postlinksanswer item'><a href='" + postUrl + "'><div>" + resultResponse[i].answer + "</div></a></li>");
+          }
+
+//else, display title as link
+          else {
+            $('#supernaturalPosts').append("<li class='postlinks item'><a href='" + postUrl + "'><div>" + resultResponse[i].blog_name + "</div></a></li>");
+          }
+        }
+//masonry call
+  $('#supernatural').masonry({
+   columnWidth: 250,
+   itemSelector: '.item',
+   });  
+
+      }
+
+  });
+
+}
+
 
 
   
