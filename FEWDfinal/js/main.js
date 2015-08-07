@@ -80,10 +80,14 @@ $(document).ready(function() {
           }
         }
 //masonry call
+  $('#fandom').imagesLoaded(function() {
+console.log("masonry");
   $('#fandom').masonry({
-   columnWidth: 250,
+
+   columnWidth: 'li',
    itemSelector: '.item',
-   });  
+   });
+    });   
       }
 
   });
@@ -141,11 +145,12 @@ $(document).ready(function() {
           }
         }
 //masonry call
+$('#fanArt').imagesLoaded(function() {
   $('#fanArt').masonry({
-   columnWidth: 250,
+   columnWidth: 'li',
    itemSelector: '.item',
    });  
-
+});
       }
 
   });
@@ -202,11 +207,13 @@ $(document).ready(function() {
           }
         }
 //masonry call
+$('#OTP').imagesLoaded(function() {
+console.log("masonry is running");  
   $('#OTP').masonry({
-   columnWidth: 250,
+   columnWidth: 'li',
    itemSelector: '.item',
-   });  
-
+   }); 
+});
       }
 
   });
@@ -263,11 +270,12 @@ $(document).ready(function() {
           }
         }
 //masonry call
+$('#shipIt').imagesLoaded(function() {
   $('#shipIt').masonry({
-   columnWidth: 250,
+   columnWidth: 'li',
    itemSelector: '.item',
    });  
-
+});
       }
 
   });
@@ -325,12 +333,12 @@ $(document).ready(function() {
         }
 //masonry call
   
-  
+ $('#fanFeels').imagesLoaded(function() { 
     $('#fanFeels').masonry({
-     columnWidth: 250,
+     columnWidth: 'li',
      itemSelector: '.item',
      });  
-
+  });
 
   }  
   });

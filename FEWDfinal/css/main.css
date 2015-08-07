@@ -35,8 +35,8 @@ h3 {
 
  .postlinks a {
   border: 1px solid #fff;
-  padding: 5px;
-  margin: 5px auto;
+  padding: 10px;
+  margin: 10px auto;
   display: inline-block;
  }
 
@@ -62,8 +62,8 @@ h3 {
 
  .postlinksphoto a {
   /*border: 1px solid #fff;*/
-  padding: 5px;
-  margin: 5px auto;
+  padding: 10px;
+  margin: 10px auto;
   display: inline-block;
  }
 
@@ -173,8 +173,8 @@ a {
   display: inline-block;
  }
 
- .item {
-  width: 33.333%;
+ li {
+  width: 45%;
  }
 
 
