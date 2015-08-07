@@ -11,7 +11,7 @@ body {
   font-weight: 300;
   background-color: #132d40;
   color: #fff;
-  height:100%;
+  
 }
 
 
@@ -35,15 +35,21 @@ h3 {
 
  .postlinks a {
   border: 1px solid #fff;
-  padding: 10px;
-  margin: 10px auto;
+  padding: 5px;
+  margin: 5px auto;
   display: inline-block;
  }
 
  .postlinksquote {
     /*border: 1px solid #fff;*/
     padding: 10px;
-    width: 80%;
+    width: 60%;
+ }
+
+  .postlinksanswer {
+    /*border: 1px solid #fff;*/
+    padding: 10px;
+    width: 60%;
  }
 
  .postlinkstext div {
@@ -56,8 +62,8 @@ h3 {
 
  .postlinksphoto a {
   /*border: 1px solid #fff;*/
-  padding: 10px;
-  margin: 10px auto;
+  padding: 5px;
+  margin: 5px auto;
   display: inline-block;
  }
 
@@ -133,6 +139,7 @@ a {
   font-size: .75em; 
   width: 100%;
   text-align: center;
+  margin-top: 25px;
 }
 
 
@@ -165,4 +172,9 @@ a {
   margin: 2px;
   display: inline-block;
  }
+
+ .item {
+  width: 33.333%;
+ }
+
 

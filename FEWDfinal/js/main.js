@@ -84,7 +84,6 @@ $(document).ready(function() {
    columnWidth: 250,
    itemSelector: '.item',
    });  
-
       }
 
   });
@@ -325,13 +324,15 @@ $(document).ready(function() {
           }
         }
 //masonry call
-  $('#fanFeels').masonry({
-   columnWidth: 250,
-   itemSelector: '.item',
-   });  
+  
+  
+    $('#fanFeels').masonry({
+     columnWidth: 250,
+     itemSelector: '.item',
+     });  
 
-      }
 
+  }  
   });
 
 }
