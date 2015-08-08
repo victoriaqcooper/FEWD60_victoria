@@ -23,7 +23,7 @@ $(document).ready(function() {
   $('#menu').on('click', '.fandom', fandom);
   $('#menu').on('click', '.fanArt', fanArt);
   $('#menu').on('click', '.otp', oneTruePairing);
-  $('#menu').on('click', '.shipit', cosplay);
+  $('#menu').on('click', '.cosplay', cosplay);
   $('#menu').on('click', '.fanfeels', fanFeels);
   
 //
@@ -227,9 +227,9 @@ console.log("masonry is running");
 
 }
 
-/*I SHIP IT*/
+/*COSPLAY*/
   function cosplay(event) {
-    console.log("ship it is running");
+    console.log("cosplay is running");
 //url variables
     var url = 'http://api.tumblr.com/v2/tagged?tag=';
     var tag = 'cosplay'
@@ -256,30 +256,30 @@ console.log("masonry is running");
           
 //if result type is a photo, display the photo
           if (resultResponse[i].type == "photo"){
-          $('#shipItPosts').append("<li class='postlinksphoto item'><a href='" + postUrl + "'><img src='" + resultResponse[i].photos[0].alt_sizes[1].url + "'></a></li>");
+          $('#cosplayPosts').append("<li class='postlinksphoto item'><a href='" + postUrl + "'><img src='" + resultResponse[i].photos[0].alt_sizes[1].url + "'></a></li>");
           }
 
 //if result type is text, display the body of the post
           else if (resultResponse[i].type == "text"){
-            $('#shipItPosts').append("<li class= 'postlinkstext item'><a href='" + postUrl + "'><div>" + resultResponse[i].body + "</div></a></li>");
+            $('#cosplayPosts').append("<li class= 'postlinkstext item'><a href='" + postUrl + "'><div>" + resultResponse[i].body + "</div></a></li>");
           }
 //if result type is quote, display the quote
           else if (resultResponse[i].type == "quote") {
-            $('#shipItPosts').append("<li class= 'postlinksquote item'><a href='" + postUrl + "'><div>" + resultResponse[i].text + "</div></a></li>");
+            $('#cosplayPosts').append("<li class= 'postlinksquote item'><a href='" + postUrl + "'><div>" + resultResponse[i].text + "</div></a></li>");
           }
 
            else if (resultResponse[i].type == "answer") {
-            $('#shipItPosts').append("<li class= 'postlinksanswer item'><a href='" + postUrl + "'><div>" + resultResponse[i].answer + "</div></a></li>");
+            $('#cosplayPosts').append("<li class= 'postlinksanswer item'><a href='" + postUrl + "'><div>" + resultResponse[i].answer + "</div></a></li>");
           }
 
 //else, display title as link
           else {
-            $('#shipItPosts').append("<li class='postlinks item'><a href='" + postUrl + "'><div>" + resultResponse[i].blog_name + "</div></a></li>");
+            $('#cosplayPosts').append("<li class='postlinks item'><a href='" + postUrl + "'><div>" + resultResponse[i].blog_name + "</div></a></li>");
           }
         }
 //masonry call
-$('#shipIt').imagesLoaded(function() {
-  $('#shipIt').masonry({
+$('#cosplay').imagesLoaded(function() {
+  $('#cosplay').masonry({
    columnWidth: 'li',
    gutter: 15,
    itemSelector: '.item',
