@@ -83,8 +83,8 @@ $(document).ready(function() {
   $('#fandom').imagesLoaded(function() {
 console.log("masonry");
   $('#fandom').masonry({
-
    columnWidth: 'li',
+   gutter: 15,
    itemSelector: '.item',
    });
     });   
@@ -148,6 +148,7 @@ console.log("masonry");
 $('#fanArt').imagesLoaded(function() {
   $('#fanArt').masonry({
    columnWidth: 'li',
+   gutter: 15,
    itemSelector: '.item',
    });  
 });
@@ -211,6 +212,7 @@ $('#OTP').imagesLoaded(function() {
 console.log("masonry is running");  
   $('#OTP').masonry({
    columnWidth: 'li',
+   gutter: 15,
    itemSelector: '.item',
    }); 
 });
@@ -273,6 +275,7 @@ console.log("masonry is running");
 $('#shipIt').imagesLoaded(function() {
   $('#shipIt').masonry({
    columnWidth: 'li',
+   gutter: 15,
    itemSelector: '.item',
    });  
 });
@@ -336,6 +339,7 @@ $('#shipIt').imagesLoaded(function() {
  $('#fanFeels').imagesLoaded(function() { 
     $('#fanFeels').masonry({
      columnWidth: 'li',
+     gutter: 15,
      itemSelector: '.item',
      });  
   });
