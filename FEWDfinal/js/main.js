@@ -23,7 +23,7 @@ $(document).ready(function() {
   $('#menu').on('click', '.fandom', fandom);
   $('#menu').on('click', '.fanArt', fanArt);
   $('#menu').on('click', '.otp', oneTruePairing);
-  $('#menu').on('click', '.shipit', iShipIt);
+  $('#menu').on('click', '.shipit', cosplay);
   $('#menu').on('click', '.fanfeels', fanFeels);
   
 //
@@ -228,7 +228,7 @@ console.log("masonry is running");
 }
 
 /*I SHIP IT*/
-  function iShipIt(event) {
+  function cosplay(event) {
     console.log("ship it is running");
 //url variables
     var url = 'http://api.tumblr.com/v2/tagged?tag=';
