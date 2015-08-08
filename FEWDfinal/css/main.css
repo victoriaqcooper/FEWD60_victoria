@@ -42,12 +42,14 @@ h3 {
 
  .postlinksquote {
     /*border: 1px solid #fff;*/
+    margin: 10px auto;
     padding: 10px;
     width: 60%;
  }
 
   .postlinksanswer {
     /*border: 1px solid #fff;*/
+    margin: 10px auto;
     padding: 10px;
     width: 60%;
  }
@@ -57,7 +59,7 @@ h3 {
   width: 230px;
   font-size: 1.2em;
   padding: 15px;
-  margin: 10 auto;
+  margin: 10px auto;
  }
 
  .postlinksphoto a {

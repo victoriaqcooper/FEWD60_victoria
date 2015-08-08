@@ -3,6 +3,8 @@
 //AUG2015
 //FEWD60 FINAL PROJECT
 
+//TODO: cosplay function
+
 $(document).ready(function() {
   
 /**********NAVIGATION************/
@@ -30,6 +32,7 @@ $(document).ready(function() {
 
 /**********API FUNCTIONS************/
 
+/*FANDOM FUNCTION*/  
   function fandom(event) {
     console.log("fandom is running");
 //url variables
@@ -158,6 +161,8 @@ $('#fanArt').imagesLoaded(function() {
 
 }
 
+/*ONE TRUE PAIRING*/
+
   function oneTruePairing(event) {
     console.log("otp is running");
 //url variables
@@ -222,11 +227,12 @@ console.log("masonry is running");
 
 }
 
+/*I SHIP IT*/
   function iShipIt(event) {
     console.log("ship it is running");
 //url variables
     var url = 'http://api.tumblr.com/v2/tagged?tag=';
-    var tag = 'I ship it'
+    var tag = 'cosplay'
     var api_key = '&api_key=KpXJwr81sO35qgbSzVY2DoxRhEnU44LnUiyermO9Xc3pdQ106J';
     var limit = '&limit=20'
 //actual ajax call
@@ -285,6 +291,8 @@ $('#shipIt').imagesLoaded(function() {
 
 }
 
+
+/*FAN FEELS*/
  function fanFeels(event) {
     console.log("fan feels it is running");
 //url variables
